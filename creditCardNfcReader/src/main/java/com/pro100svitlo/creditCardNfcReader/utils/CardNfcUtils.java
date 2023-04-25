@@ -26,8 +26,12 @@ public class CardNfcUtils {
     public CardNfcUtils(final Activity pActivity) {
         mActivity = pActivity;
         mNfcAdapter = NfcAdapter.getDefaultAdapter(mActivity);
+        int flags = 0;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags |= PendingIntent.FLAG_MUTABLE;
+        }
         mPendingIntent = PendingIntent.getActivity(mActivity, 0,
-                new Intent(mActivity, mActivity.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+                new Intent(mActivity, mActivity.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), flags);
     }
 
     public void disableDispatch() {
