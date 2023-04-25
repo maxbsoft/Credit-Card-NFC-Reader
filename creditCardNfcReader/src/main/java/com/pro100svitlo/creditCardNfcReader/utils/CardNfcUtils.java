@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.nfc.NfcAdapter;
 import android.nfc.tech.IsoDep;
 import android.nfc.tech.NfcA;
+import android.os.Build;
 
 /**
  * Created by pro100svitlo on 31.03.16.
